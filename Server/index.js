@@ -19,14 +19,13 @@ app.use(fileUpload({}))
 app.use('/api', router)
 
 
-
 // обработка ошибок, последний middleware
 app.use(errorHandler)
-const start = async () =>{
+const start = async () => {
     try {
         await sequelize.authenticate()
         await sequelize.sync()
-        app.listen(PORT, ()=> console.log(`Server listening on port ${PORT}`))
+        app.listen(PORT, () => console.log(`Server listening on port ${PORT}`))
     } catch (e) {
         console.log(e)
     }
